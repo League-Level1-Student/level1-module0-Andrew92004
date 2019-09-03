@@ -26,7 +26,7 @@ public class PhotoQuiz {
 
 		// 1. find an image on the internet, and put its URL in a String
 		// variable (from your browser, right click on the image, and select
-		// “Copy Image Address”)
+		// Copy Image Address)
 		String watermelon = ("https://tinyurl.com/y66vnzqn");
 		// 2. create a variable of type "Component" that will hold your image
 		// 3. use the "createImage()" method below to initialize your Component

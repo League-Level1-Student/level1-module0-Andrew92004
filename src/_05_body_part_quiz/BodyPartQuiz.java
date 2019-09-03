@@ -61,12 +61,14 @@ public class BodyPartQuiz {
 		// -- Tell them they are right and increase the score by 1
 		if (guess.equals("arnold")) {
 			System.out.println("Correct");
-			score++;
+			score ++;
+			System.out.println("Score is: " + score);
 		}
 		// 6. Otherwise:
 		// -- Tell them they are wrong and who the person is
 		else {
 			System.out.println("WRONG! Answer is arnold");
+			System.out.println("Score is: " + score);
 		}
 		// 7. Use the showNextImage() method below to get the next image
 		showNextImage();
@@ -75,32 +77,38 @@ public class BodyPartQuiz {
 		String guess1 = JOptionPane.showInputDialog("who is this?");
 		if (guess1.equals("leonardo")) {
 			System.out.println("Correct");
-			score++;
+			score ++;
+			System.out.println("Score is: " + score);
+			
 		}
 		else {
 			System.out.println("WRONG! Answer is leonardo");
+			System.out.println("Score is: " + score);
 		}
 		showNextImage();
 		String guess2 = JOptionPane.showInputDialog("who is this?");
 		if (guess2.equals("morgan")) {
 			System.out.println("Correct");
-			score++;
+			score ++;
+			System.out.println("Score is: " + score);
 		}
 		else {
 			System.out.println("WRONG! Answer is morgan");
+			System.out.println("Score is: " + score);
 		}
 		showNextImage();
 		String guess3 = JOptionPane.showInputDialog("who is this?");
 		if (guess3.equals("jack")) {
 			System.out.println("Correct");
-			score++;
+			score ++;
+			System.out.println("Score is: " + score);
 		}
 		else {
 			System.out.println("WRONG! Answer is jack");
+			System.out.println("Score is: " + score);
 		}
 		showNextImage();
 		// 9. Show them their current score
-		System.out.println(score);
 	}
 
 	public void showNextImage() {
