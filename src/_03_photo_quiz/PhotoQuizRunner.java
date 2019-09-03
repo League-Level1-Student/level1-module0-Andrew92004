@@ -10,3 +10,4 @@ public class PhotoQuizRunner {
 		new PhotoQuiz().run();
 	}
 }
+//done
