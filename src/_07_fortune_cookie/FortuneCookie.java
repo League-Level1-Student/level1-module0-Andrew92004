@@ -28,9 +28,7 @@ public class FortuneCookie implements ActionListener {
 		JOptionPane woohoo = new JOptionPane();
 		int rand = new Random().nextInt(5);
 		if (rand == 3) {
-		woohoo.setMessage("Woohoo");
-		woohoo.
-	}
-		frame.pack();
+			JOptionPane.showMessageDialog(woohoo, "Woohoo");		
+			}
 }
 }
