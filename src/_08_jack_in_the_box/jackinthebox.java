@@ -1,11 +1,13 @@
 package _08_jack_in_the_box;
 
+import java.applet.AudioClip;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.print.DocFlavor.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -48,10 +50,9 @@ public class jackinthebox implements ActionListener {
 	               System.err.println("Could not find image " + fileName);
 	               return new JLabel();
 	           } else {
-	                Icon icon = new ImageIcon("jackInTheBox.png");
-	                JLabel imageLabel = new JLabel(icon);
-	                imageLabel.setPreferredSize(new Dimension(icon.getIconWidth(), icon.getIconHeight()));
-	                return imageLabel;
+	               Icon icon = new ImageIcon(imageURL);
+	               JLabel imageLabel = new JLabel(icon);
+	               return imageLabel;
 	          }
 	      } catch (Exception e) {
 	           System.err.println("Could not find image " + fileName);
@@ -59,6 +60,14 @@ public class jackinthebox implements ActionListener {
 	           
 	     }
 	 }
+	private void playSound(String soundFile) { 
+	     try {
+	          AudioClip sound = JApplet.newAudioClip(getClass().getResource("homer-woohoo.wav"));
+	          sound.play();
+	     } catch (Exception e) {
+	          e.printStackTrace();
+	     }
+	}
 
 
 	@Override
@@ -67,7 +76,9 @@ public class jackinthebox implements ActionListener {
 		clicks ++;
 		if (clicks == 5) {
 			System.out.println(clicks);
+			suprise.setVisible(false);
 			showPicture("jackInTheBox.png");
+			playSound("homer-woohoo.wav");
 			clicks = 0;
 		}
 	}
