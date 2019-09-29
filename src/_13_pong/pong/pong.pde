@@ -1,29 +1,56 @@
- int speed = 10;
+        import ddf.minim.*;
+  Minim minim;
+  AudioSample sound;
+      PImage backgroundImage;
+ int speedx = 5;
+ int speedy = 2;
   int ballx = 1;
-  int bally = 0;
+  int bally = 1;
+
+  int paddleY = 470;
+  int paddleLength = 100;
 void draw(){
-   background(0,255,0);
+    int paddleX = mouseX;
+          sound.trigger();
+            image(backgroundImage, 0, 0);
+    image(backgroundImage, 0, 0, width, height);
+         rect(paddleX, paddleY, paddleLength, 20);
+
  
  fill(0,0,255);
  stroke(255,255,255);
- ellipse(ballx, bally,50,50);
-     ballx = ballx + speed;
-    // bally = bally + speed;
+ ellipse(ballx, bally,20,20);
+     ballx = ballx + speedx;
+     bally = bally + speedy;
  if (ballx <= 0){
-  speed = -speed;
+  speedx = -speedx;
  }
  if (ballx >= width){
- speed = -speed;
+ speedx = -speedx;
  }
 if (bally <= 0){
-  speed = -speed;
+  speedy = -speedy;
 }
 if (bally >= height){
-speed = -speed;
+speedy = -speedy;
+}
+if(intersects(ballx,bally,paddleX,paddleY,paddleLength)){
+
+  speedy= -speedy;
 }
 }
 void setup(){
- size(500,500);
-
   
+ size(500,500);
+        minim = new Minim (this);
+  sound = minim.loadSample("pong.wav", 128);
+      backgroundImage = loadImage("pong.png");
+      
 }
+
+       boolean intersects(int ballx, int bally, int paddleX, int paddleY, int paddleLength) {
+     if (bally > paddleY && ballx > paddleX && ballx < paddleX + paddleLength)
+          return true;
+     else
+          return false;
+    }
